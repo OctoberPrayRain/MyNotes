@@ -43,6 +43,8 @@
 build/
 Build/
 build-*/
+out/
+CppEnv/src/main
 
 # CMake generated files
 CMakeFiles/

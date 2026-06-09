@@ -2,14 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug C++",
+            "name": "Debug CppEnv",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/out/main",
-            "preLaunchTask": "g++ build",
+            "program": "${workspaceFolder}/CppEnv/out/main",
+            "preLaunchTask": "g++ build CppEnv",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/CppEnv",
             "environment": [
                 {
                     "name": "DEBUGINFOD_URLS",
