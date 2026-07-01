@@ -8,9 +8,10 @@ typedef struct Node{
 
 //接下来实现ADT
 
-void InitList(LinkList &L){
+bool InitList(LinkList &L){
     L = new LNode;
     L->next = nullptr;
+    return true;
 }
 //创建头节点，不存任何数据，同时一开始的next为nullptr
 
@@ -46,7 +47,7 @@ bool ListEmpty(LinkList &L){
 }
 //判断链表是不是空的 如果是空的就返回true 反之false
 
-int ListLength(LinkList &L){
+int ListLength(LinkList L){
     int length = 0;
     Node* p = L->next;
     while(p != nullptr){
@@ -57,33 +58,30 @@ int ListLength(LinkList &L){
 }
 //跟ClearList的逻辑类似，先用一个p表示头节点的next节点，然后再重复遍历过程并计算长度
 
-int GetElem(LinkList &L, int i , int &e){
-    if(ListLength(L) < i || i < 1){
-        cout << "Invalid position!" << endl;
-        return 0;
-    }
-    //以上是基本长度判别
+LNode* GetElem(LinkList L, int i , int &e){
     Node* p = L;
-    for(int j = 0 ; j < i ; j++){
-        p = p->next;
+    int j = 0;
+    while(p!=nullptr && j < i){
+        p=p->next;
+        j++;
     }
+
+    if (p == nullptr || j > i) { 
+        return nullptr; 
+    }
+
     e = p->data;
-    return e;
+    return p;
  }
  //获取对应位置的元素data值
 
-int LocateElem(LinkList &L,int e){
-    int location = 1;
+LNode* LocateElem(LinkList &L,int e){
+
     Node* p = L->next;
-    while(p!=nullptr){
-         if(p->data == e){
-            return location;
-        }
-        location++;
+    while(p!=nullptr && p->data != e){
         p = p->next;
     }
-    cout<< "The location not found!" << endl;
-    return 0;
+    return p;
 }
 //如果链表为空则while直接就不执行 所以不需要判断条件
 //同时这里的e不需要&符号的原因是因为只要位置而不需要改变值
