@@ -3,7 +3,7 @@ using namespace std;
 
 typedef struct Node{
     int data;
-    Node *next;
+    struct Node *next;
 }LNode,*LinkList; //这样定义的时候是LNode *p和LinkList p 这样是符合习惯的
 
 //接下来实现ADT

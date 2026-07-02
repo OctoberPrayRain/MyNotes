@@ -5,7 +5,7 @@
 #define initsize 100
 //定义线性表节点
 
-typedef struct{
+typedef struct List{
     elementType* data;
     int MaxSize,length;
 }SeqList;
